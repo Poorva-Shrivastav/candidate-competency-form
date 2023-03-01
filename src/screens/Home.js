@@ -1,20 +1,16 @@
-import React, { useState } from "react";
+import React, { useState, version } from "react";
 import { useHistory } from "react-router-dom";
 import Banner from "../components/Banner";
+import axios from "axios";
 
 function Home(props) {
-  const [formVal, setFormVal] = useState({
-    firstName: "",
-    lastName: "",
-    email: "",
-    phone: "",
-  });
+  const [formVal, setFormVal] = useState([]);
 
   const history = useHistory();
 
   const handleChange = (e) => {
     const val = e.target.value;
-    setFormVal({ ...formVal, [e.target.name]: val });
+    setFormVal([...formVal, val]);
   };
 
   const onSubmit = (e) => {
@@ -26,7 +22,29 @@ function Home(props) {
       formVal.phone !== ""
     ) {
       props.submitHandler(formVal);
-      history.push("/competencies");
+
+      const data = {
+        first: formVal[0],
+        last: formVal[1],
+        email: formVal[2],
+        phone: formVal[3],
+      };
+
+      const URL = process.env.REACT_APP_API_SCRIPT;
+
+      fetch(URL, {
+        redirect: "follow",
+        method: "POST",
+        body: JSON.stringify(data),
+        headers: {
+          "Content-Type": "text/plain;charset=utf-8",
+        },
+      })
+        .then((res) => res.json())
+        .then((data) => console.log(data))
+        .catch((err) => console.log(err));
+
+      // history.push("/competencies");
     } else {
       alert("Please fill all the values in the form");
     }
