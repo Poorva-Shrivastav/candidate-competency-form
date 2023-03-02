@@ -6,6 +6,7 @@ import TextArea from "./TextArea";
 function CompetenciesExplained({
   competencySelected,
   competencyDataFilledHandler,
+  finalSubmitHandler,
 }) {
   const [competencyFilled, setCompetencyFilled] = useState({});
 
@@ -16,7 +17,7 @@ function CompetenciesExplained({
       Object.values(competencyFilled).filter((item) => item !== "").length === 4
     ) {
       competencyDataFilledHandler(competencyFilled);
-      history.push("/");
+      finalSubmitHandler();
     } else {
       alert("Please fill all the blocks");
     }

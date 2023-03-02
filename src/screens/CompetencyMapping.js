@@ -10,6 +10,7 @@ function CompetencyMapping({ competencySelected, competencyPercentHandler }) {
   function sumReducer(accumulator, currentValue) {
     return accumulator + currentValue;
   }
+
   const onSubmit = () => {
     const count = Object.values(selectedPercent).reduce(sumReducer);
     if (count === 100) {

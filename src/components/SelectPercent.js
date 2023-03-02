@@ -13,7 +13,7 @@ function SelectPercent({
   return (
     <div className="mt-4">
       {competencySelected.map((competency, id) => (
-        <div className="mb-4 flex justify-between bg-fuchsia-200">
+        <div className="mb-4 flex justify-between bg-fuchsia-200" key={id}>
           <label data-te-select-label-ref>{competency}</label>
           <select
             data-te-select-init

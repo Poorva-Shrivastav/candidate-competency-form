@@ -11,8 +11,8 @@ function TextArea({
   };
   return (
     <>
-      {competencySelected.map((competency) => (
-        <div className="p-4">
+      {competencySelected.map((competency, id) => (
+        <div className="p-4" key={id}>
           <label className="inline-block pb-2 hover:cursor-pointer">
             {competency}
           </label>
@@ -23,6 +23,7 @@ function TextArea({
             // value={competency}
             onChange={addCompetency}
             type="text"
+            key={id}
             required
           ></textarea>
         </div>

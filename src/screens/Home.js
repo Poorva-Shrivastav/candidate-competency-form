@@ -41,10 +41,13 @@ function Home(props) {
         },
       })
         .then((res) => res.json())
-        .then((data) => console.log(data))
+        .then((data) => {
+          console.log(data);
+          history.push("/competencies");
+        })
         .catch((err) => console.log(err));
 
-      // history.push("/competencies");
+      history.push("/competencies");
     } else {
       alert("Please fill all the values in the form");
     }

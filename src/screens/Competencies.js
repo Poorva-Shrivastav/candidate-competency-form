@@ -33,34 +33,32 @@ function Competencies(props) {
   return (
     <div className="isolate bg-white">
       <Banner />
-      <div class="text-center">
-        <h1 class="mt-40 text-5xl font-bold tracking-tight text-gray-900 sm:text-5xl">
+      <div className="text-center">
+        <h1 className="mt-40 text-5xl font-bold tracking-tight text-gray-900 sm:text-5xl">
           Select Competencies that represent you the most
         </h1>
-        <p class="mt-6 text-lg leading-8 text-gray-600 w-4/5 text-center ml-28">
+        <p className="mt-6 text-lg leading-8 text-gray-600 w-4/5 text-center ml-28">
           Competency-based hiring is grounded in the identification of core
           competencies required for success and the subsequent evaluation of
           each candidate's demonstration of those competencies in their past
           experiences.
         </p>
-        <p class="mt-6 text-m leading-8 text-gray-600 w-4/5 text-center ml-28">
+        <p className="mt-6 text-m leading-8 text-gray-600 w-4/5 text-center ml-28">
           Please select any four competencies
         </p>
       </div>
-      <div class="max-h-screen w-9/12 ml-40 mt-4 bg-gradient-to-r from-fuchsia-200 grid grid-cols-5">
-        {competencies.map((competency) => (
-          <div className="p-4">
+      <div className="max-h-screen w-9/12 ml-40 mt-4 bg-gradient-to-r from-fuchsia-200 grid grid-cols-5">
+        {competencies.map((competency, id) => (
+          <div className="p-4" key={id}>
             <input
+              key={id}
               className="mr-2"
               type="checkbox"
               value={competency}
               id="checkbox1"
               onChange={addCompetency}
             />
-            <label
-              class="inline-block pl-[0.15rem] hover:cursor-pointer"
-              for="checkbox1"
-            >
+            <label className="inline-block pl-[0.15rem] hover:cursor-pointer">
               {competency}
             </label>
           </div>
