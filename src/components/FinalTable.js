@@ -34,16 +34,14 @@ function FinalTable({ data }) {
             </td>
           </tr>
           <tr>
-            <td className="border p-2 w-1/3 border-slate-300 ...">
-              Competency
-            </td>
-            <td className="border p-2 w-2/3 border-slate-300 ...">
+            <td className="border p-2 w-1/3 border-slate-300">Competency</td>
+            <td className="border p-2 w-2/3 border-slate-300">
               {data.competency3}
             </td>
           </tr>
           <tr>
             <td className="border p-2 w-1/3 border-slate-300">Weightage</td>
-            <td className="border p-2 w-2/3 border-slate-300 ...">
+            <td className="border p-2 w-2/3 border-slate-300">
               {data.competencyWeightage3}
             </td>
           </tr>
@@ -58,28 +56,22 @@ function FinalTable({ data }) {
       <table className="w-1/2 ml-28 border-separate border-spacing-2 border border-slate-400">
         <tbody>
           <tr>
-            <td className="border p-2 w-1/3 border-slate-300 ...">Last Name</td>
-            <td className="border p-2 w-2/3 border-slate-300 ...">
-              {data.last}
-            </td>
+            <td className="border p-2 w-1/3 border-slate-300">Last Name</td>
+            <td className="border p-2 w-2/3 border-slate-300">{data.last}</td>
           </tr>
           <tr>
-            <td className="border p-2 w-1/3 border-slate-300 ...">Phone</td>
-            <td className="border p-2 w-2/3 border-slate-300 ...">
-              {data.phone}
-            </td>
+            <td className="border p-2 w-1/3 border-slate-300">Phone</td>
+            <td className="border p-2 w-2/3 border-slate-300">{data.phone}</td>
           </tr>
           <tr>
-            <td className="border p-2 w-1/3 border-slate-300 ...">
-              Competency
-            </td>
-            <td className="border p-2 w-2/3 border-slate-300 ...">
+            <td className="border p-2 w-1/3 border-slate-300">Competency</td>
+            <td className="border p-2 w-2/3 border-slate-300">
               {data.competency2}
             </td>
           </tr>
           <tr>
-            <td className="border p-2 w-1/3 border-slate-300 ...">Weightage</td>
-            <td className="border p-2 w-2/3 border-slate-300 ...">
+            <td className="border p-2 w-1/3 border-slate-300">Weightage</td>
+            <td className="border p-2 w-2/3 border-slate-300">
               {data.competencyWeightage2}
             </td>
           </tr>
@@ -90,16 +82,14 @@ function FinalTable({ data }) {
             </td>
           </tr>
           <tr>
-            <td className="border p-2 w-1/3 border-slate-300 ...">
-              Competency
-            </td>
-            <td className="border p-2 w-2/3 border-slate-300 ...">
+            <td className="border p-2 w-1/3 border-slate-300">Competency</td>
+            <td className="border p-2 w-2/3 border-slate-300">
               {data.competency4}
             </td>
           </tr>
           <tr>
-            <td className="border p-2 w-1/3 border-slate-300 ...">Weightage</td>
-            <td className="border p-2 w-2/3 border-slate-300 ...">
+            <td className="border p-2 w-1/3 border-slate-300">Weightage</td>
+            <td className="border p-2 w-2/3 border-slate-300">
               {data.competencyWeightage4}
             </td>
           </tr>

@@ -64,9 +64,9 @@ function Home(props) {
   return (
     <div className="isolate bg-white flex justify-center md: ml-3">
       <Banner />
-      <div className="mt-10">
+      <div className="mt-20">
         <h1 className="text-center mb-10 text-lg font-bold tracking-tight text-gray-900 sm:text-4xl">
-          Let's know you
+          Competency Assessment Form
         </h1>
         <form className="w-full max-w-lg" onSubmit={onSubmit}>
           <div className="flex flex-wrap -mx-3 mb-6">
@@ -141,8 +141,8 @@ function Home(props) {
           <div className="flex flex-wrap -mx-3 mb-6">
             <div className="w-full px-3 text-center">
               <button
-                className="shadow bg-blue-500 hover:bg-blue-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded"
                 type="submit"
+                className="shadow bg-purple-500 hover:bg-purple-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded"
               >
                 Next..
               </button>
