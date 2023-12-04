@@ -17,7 +17,7 @@ function CompetenciesExplained({
       Object.values(competencyFilled).filter((item) => item !== "").length === 4
     ) {
       competencyDataFilledHandler(competencyFilled);
-      finalSubmitHandler();
+      history.push("/submit");
     } else {
       alert("Please fill all the blocks");
     }
@@ -27,9 +27,9 @@ function CompetenciesExplained({
     <div className="isolate bg-white">
       <Banner />
       <div className="text-center">
-        <h2 className="mt-40 text-4xl font-bold tracking-tight text-gray-900 sm:text-4xl">
-          Let's take next step towards explainng these competencies:
-        </h2>
+        <h3 className="mt-40 text-4xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+          Help us understand why these competencies matter to you
+        </h3>
       </div>
       <div className=" w-9/12 ml-48 mt-4 p-2 flex flex-col rounded-lg bg-fuchsia-200">
         <TextArea
@@ -44,7 +44,7 @@ function CompetenciesExplained({
             className="shadow bg-purple-500 hover:bg-purple-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded"
             onClick={onSubmit}
           >
-            Submit
+            Next..
           </button>
         </div>
       </div>

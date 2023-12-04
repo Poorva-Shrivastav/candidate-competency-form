@@ -1,16 +1,25 @@
-import React, { useState, version } from "react";
+import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 import Banner from "../components/Banner";
-import axios from "axios";
+
+const initialvalues = {
+  firstName: "",
+  lastName: "",
+  email: "",
+  phone: "",
+};
 
 function Home(props) {
-  const [formVal, setFormVal] = useState([]);
+  const [formVal, setFormVal] = useState(initialvalues);
 
   const history = useHistory();
 
   const handleChange = (e) => {
-    const val = e.target.value;
-    setFormVal([...formVal, val]);
+    if (e.target.name === "phone" && !isNaN(e.target.value)) {
+      setFormVal({ ...formVal, [e.target.name]: e.target.value });
+    } else if (e.target.name !== "phone") {
+      setFormVal({ ...formVal, [e.target.name]: e.target.value });
+    }
   };
 
   const onSubmit = (e) => {
@@ -24,10 +33,10 @@ function Home(props) {
       props.submitHandler(formVal);
 
       const data = {
-        first: formVal[0],
-        last: formVal[1],
-        email: formVal[2],
-        phone: formVal[3],
+        first: formVal.firstName,
+        last: formVal.lastName,
+        email: formVal.email,
+        phone: formVal.phone,
       };
 
       const URL = process.env.REACT_APP_API_SCRIPT;
@@ -43,11 +52,10 @@ function Home(props) {
         .then((res) => res.json())
         .then((data) => {
           console.log(data);
-          history.push("/competencies");
+          localStorage.setItem("userInfo", JSON.stringify(formVal.email));
         })
+        .then((push) => history.push("/competencies"))
         .catch((err) => console.log(err));
-
-      history.push("/competencies");
     } else {
       alert("Please fill all the values in the form");
     }
@@ -56,13 +64,13 @@ function Home(props) {
   return (
     <div className="isolate bg-white flex justify-center md: ml-3">
       <Banner />
-      <div className="mt-40">
-        <h1 className="text-lg font-bold tracking-tight text-gray-900 sm:text-4xl">
-          Select
+      <div className="mt-10">
+        <h1 className="text-center mb-10 text-lg font-bold tracking-tight text-gray-900 sm:text-4xl">
+          Let's know you
         </h1>
         <form className="w-full max-w-lg" onSubmit={onSubmit}>
           <div className="flex flex-wrap -mx-3 mb-6">
-            <div className="w-full md: px-3 mb-6 md:mb-0">
+            <div className="w-full md:px-3 mb-6 md:mb-0 ">
               <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2 float-left">
                 First Name*
               </label>
@@ -74,11 +82,8 @@ function Home(props) {
                 placeholder="Jane"
                 onChange={handleChange}
                 value={formVal.firstName}
+                size="20"
               />
-              {/* border-red-500 */}
-              {/* <p class="text-red-500 text-xs italic">
-              Please fill out this field.
-            </p> */}
             </div>
             <div className="w-full md: px-3">
               <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2 float-left">
@@ -92,6 +97,7 @@ function Home(props) {
                 name="lastName"
                 onChange={handleChange}
                 value={formVal.lastName}
+                size="30"
               />
             </div>
           </div>
@@ -108,6 +114,7 @@ function Home(props) {
                 name="email"
                 onChange={handleChange}
                 value={formVal.email}
+                size="30"
               />
             </div>
           </div>
@@ -125,11 +132,14 @@ function Home(props) {
                 name="phone"
                 onChange={handleChange}
                 value={formVal.phone}
+                minlength="10"
+                maxlength="10"
+                size="10"
               />
             </div>
           </div>
           <div className="flex flex-wrap -mx-3 mb-6">
-            <div className="w-full px-3">
+            <div className="w-full px-3 text-center">
               <button
                 className="shadow bg-blue-500 hover:bg-blue-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded"
                 type="submit"

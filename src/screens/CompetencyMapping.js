@@ -33,7 +33,7 @@ function CompetencyMapping({ competencySelected, competencyPercentHandler }) {
         </p>
       </div>
       <div className="w-5/12 mt-4 flex flex-col bg-fuchsia-200 rounded-lg mb:w-full ml-96">
-        <div className="flex justify-left max-w-full ml-10">
+        <div className="flex justify-center ml-10">
           <div className="m-4 xl:w-96">
             <SelectPercent
               competencySelected={competencySelected}

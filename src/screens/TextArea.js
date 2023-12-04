@@ -25,6 +25,7 @@ function TextArea({
             type="text"
             key={id}
             required
+            maxlength="350"
           ></textarea>
         </div>
       ))}

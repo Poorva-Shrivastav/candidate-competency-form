@@ -14,16 +14,18 @@ function SelectPercent({
     <div className="mt-4">
       {competencySelected.map((competency, id) => (
         <div className="mb-4 flex justify-between bg-fuchsia-200" key={id}>
-          <label data-te-select-label-ref>{competency}</label>
+          <label className="w-96" data-te-select-label-ref>
+            {competency}
+          </label>
           <select
             data-te-select-init
             key={id}
             name={competency}
             onChange={selectHandler}
-            className="rounded-sm text-slate-600 w-5/12 ml-20"
+            className="rounded-sm text-slate-600 w-4/12 h-6 ml-20"
           >
             <option value="" disabled selected>
-              Select percentage
+              0%
             </option>
             <option key="10" value="10">
               10%
